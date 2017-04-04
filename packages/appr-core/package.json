@@ -1,6 +1,6 @@
 {
   "name": "appr-core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "use js write css with some missing feature help modularity and styling.",
   "main": "index.js",
   "typings": "index.d.ts",
