@@ -1,31 +1,48 @@
 {
-  "name": "@sliv/appr-v2",
+  "name": "appr-core",
   "version": "0.0.1",
-  "description": "",
+  "description": "use js write css with some missing feature help modularity and styling.",
   "main": "index.js",
   "typings": "index.d.ts",
+  "browser": "umd/appr-core.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "compile:ts": "tsc -d --target es2015 --module es2015",
+    "compile:webpack": "webpack",
+    "build": "NODE_ENV=production npm run clean && npm run compile:ts && npm run compile:webpack",
+    "clean": "rimraf -r declaration build umd"
   },
-  "keywords": [],
+  "keywords": [
+    "css",
+    "style",
+    "dom"
+  ],
   "author": "sliv <sliv.mbp@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^19.2.2",
+    "@types/node": "^7.0.12",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-ramda": "^1.2.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babili": "^0.0.12",
     "jest": "^19.0.2",
+    "rimraf": "^2.6.1",
     "ts-jest": "^19.0.6",
+    "ts-loader": "^2.0.3",
     "ts-node": "^3.0.2",
-    "typescript": "^2.2.2"
+    "typescript": "^2.2.2",
+    "webpack": "^2.3.3"
   },
   "dependencies": {
-    "@types/node": "^7.0.12",
     "ramda": "^0.23.0"
   },
   "jest": {
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",

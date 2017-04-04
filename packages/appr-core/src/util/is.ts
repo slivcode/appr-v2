@@ -7,3 +7,4 @@ export let isPropPair = ([k, v]) => isStr(k) && complement(isObj)(v);
 export let isKeyEq = t => ([k]) => k === t;
 let spProps = ['transition', 'transform', 'filter'];
 export let isSpProps = s => contains(s, spProps);
+export let isAlphabetical = t => /[a-zA-Z]/.test(t);

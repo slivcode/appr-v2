@@ -2,18 +2,18 @@ import { adjust, anyPass, cond, identity, join, map, pipe, T, toPairs, when } fr
 import { isKeyEq, isObj } from '../is';
 import { styleHyphenFormat } from '../str';
 let pairsToWrapText = (t, f) => ([k, v]) => [k, pipe(
-	when(isObj, toPairs),
-	map(f),
-	join(t),
+  when(isObj, toPairs),
+  map(f),
+  join(t),
 )(v)];
 let pairsToWrapSpaceText = pairsToWrapText(', ', ([k, v]) => `${k} ${v}`);
 let pairsToWrapQuoteText = pairsToWrapText(' ', ([k, v]) => `${k}(${v})`);
 let valTransformer = cond([
-	[isKeyEq('transition'), pairsToWrapSpaceText],
-	[anyPass([isKeyEq('transform'), isKeyEq('filter')]), pairsToWrapQuoteText],
-	[T, identity],
+  [isKeyEq('transition'), pairsToWrapSpaceText],
+  [anyPass([isKeyEq('transform'), isKeyEq('filter')]), pairsToWrapQuoteText],
+  [T, identity],
 ]);
 export let pairTransform = pipe(
-	valTransformer,
-	adjust(styleHyphenFormat, 0),
+  valTransformer,
+  adjust(styleHyphenFormat, 0),
 );

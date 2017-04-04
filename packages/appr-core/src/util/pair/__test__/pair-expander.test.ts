@@ -60,7 +60,7 @@ test('pair expander test', () => {
     },
   };
   let t = pairExpander(toPairs(arg));
-  log(t);
+  // log(t);
   let m = expect(t);
   let cases = [
     ['color', 'red'],
@@ -81,5 +81,5 @@ test('pair expander test', () => {
     [':hover', [['filter', { blur: '10px' }]]],
   ];
   map((s) => m.toContainEqual(s))(cases);
-  log(pairMerger(t));
+  // log(pairMerger(t));
 });

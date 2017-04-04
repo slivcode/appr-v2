@@ -1,34 +1,35 @@
 import { pipe, toPairs } from 'ramda';
-import { blankPipeMapJoin } from '../util/fn';
+import { blankOrPipeMapJoin } from '../util/fn';
 import { groupByKeyType } from '../util/group-by-key-type';
 import { pairTransform } from '../util/pair/pair-transformer';
 import { pairToStr, wrapBraces } from '../util/str';
-import { toObj } from './to-obj';
-export let toStr = (sel) => pipe(
+import { arrToMergedApprObj } from './arr-to-merged-appr-obj';
+export let toStr: (selector: string) => (o: Object) => string
+  = (sel) => pipe(
   toPairs,
   groupByKeyType,
   ({ c, m, p, b }) => {
-    let _b = blankPipeMapJoin(b)(pipe(
+    let _b = blankOrPipeMapJoin(b)(pipe(
       pairTransform,
       pairToStr,
     ));
     _b !== '' && (_b = wrapBraces(sel)(_b));
-    let _p = blankPipeMapJoin(p)(
+    let _p = blankOrPipeMapJoin(p)(
       ([k, v]) => pipe(
-        toObj,
+        arrToMergedApprObj,
         toStr(sel + k),
       )(v),
     );
-    let _m = blankPipeMapJoin(m)(
+    let _m = blankOrPipeMapJoin(m)(
       ([k, v]) => pipe(
-        toObj,
+        arrToMergedApprObj,
         toStr(sel),
         wrapBraces(k),
       )(v),
     );
-    let _c = blankPipeMapJoin(c)(
+    let _c = blankOrPipeMapJoin(c)(
       ([k, v]) => pipe(
-        toObj,
+        arrToMergedApprObj,
         toStr(sel + k),
       )(v),
     );

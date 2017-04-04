@@ -1,0 +1,17 @@
+{
+  "filename": "appr.js",
+  "comments": false,
+  "presets": [
+    "es2015"
+  ],
+  "plugins": [
+    "ramda"
+  ],
+  "env": {
+    "production": {
+      "presets": [
+        "babili"
+      ]
+    }
+  }
+}

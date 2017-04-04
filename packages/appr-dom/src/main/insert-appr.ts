@@ -10,7 +10,6 @@ export let insertAppr = (baseCn, apprSet) => {
   let sel = baseCn.replace(/\./g, '_');
   let $t = head.querySelector(`style#${sel}`);
   !$t && ($t = g(sel));
-  let str = toStr(baseCn);
-  $t.innerHTML = str;
+  $t.innerHTML = toStr(baseCn);
   return $t;
 };

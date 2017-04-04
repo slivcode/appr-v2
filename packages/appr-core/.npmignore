@@ -1,0 +1,10 @@
+src
+__test__
+tslint.json
+tsconfig.json
+.babelrc
+.gitignore
+*.js.map
+webpack.config.js
+yarn.lock
+.npmignore

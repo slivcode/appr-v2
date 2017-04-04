@@ -5,7 +5,15 @@
     "noImplicitAny": false,
     "sourceMap": true,
     "declaration": true,
-    "declarationDir": "declarations",
+    "declarationDir": "declaration",
     "outDir": "build"
-  }
+  },
+  "exclude": [
+    "index.d.ts",
+    "index.js",
+    "node_modules",
+    "declaration",
+    "build",
+    "webpack.config.js"
+  ]
 }
