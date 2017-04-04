@@ -1,0 +1,35 @@
+{
+  "name": "@sliv/appr-v2",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "sliv <sliv.mbp@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^19.2.2",
+    "jest": "^19.0.2",
+    "ts-jest": "^19.0.6",
+    "ts-node": "^3.0.2",
+    "typescript": "^2.2.2"
+  },
+  "dependencies": {
+    "@types/node": "^7.0.12",
+    "ramda": "^0.23.0"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  }
+}

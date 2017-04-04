@@ -4,8 +4,7 @@ import { groupByKeyType } from '../util/group-by-key-type';
 import { pairTransform } from '../util/pair/pair-transformer';
 import { pairToStr, wrapBraces } from '../util/str';
 import { toObj } from './to-obj';
-
-export let toCss = (sel) => pipe(
+export let toStr = (sel) => pipe(
   toPairs,
   groupByKeyType,
   ({ c, m, p, b }) => {
@@ -17,20 +16,20 @@ export let toCss = (sel) => pipe(
     let _p = blankPipeMapJoin(p)(
       ([k, v]) => pipe(
         toObj,
-        toCss(sel + k),
+        toStr(sel + k),
       )(v),
     );
     let _m = blankPipeMapJoin(m)(
       ([k, v]) => pipe(
         toObj,
-        toCss(sel),
+        toStr(sel),
         wrapBraces(k),
       )(v),
     );
     let _c = blankPipeMapJoin(c)(
       ([k, v]) => pipe(
         toObj,
-        toCss(sel + k),
+        toStr(sel + k),
       )(v),
     );
     return _b + _m + _p + _c;
