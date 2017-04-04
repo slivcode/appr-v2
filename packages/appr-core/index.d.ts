@@ -1,1 +1,1 @@
-export * from './declarations/index';
+export * from './declaration/index';

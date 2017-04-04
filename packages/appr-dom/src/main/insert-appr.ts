@@ -1,4 +1,4 @@
-import { toStr } from '../../../appr-core/src/main/to-str';
+import { toStr } from 'appr-core';
 let head = document.head;
 let g = (id: string) => {
   let $style = document.createElement('style');

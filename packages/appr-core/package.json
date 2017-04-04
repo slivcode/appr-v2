@@ -7,10 +7,11 @@
   "browser": "umd/appr-core.js",
   "scripts": {
     "test": "jest",
-    "compile:ts": "tsc -d --target es2015 --module es2015",
+    "compile:ts": "tsc -d",
+    "compile:ts-es2015": "tsc -d --target es2015 --module es2015 --outDir es2015",
     "compile:webpack": "webpack",
-    "build": "NODE_ENV=production npm run clean && npm run compile:ts && npm run compile:webpack",
-    "clean": "rimraf -r declaration build umd"
+    "build": "NODE_ENV=production npm run clean && npm run compile:ts && npm run compile:ts-es2015 && npm run compile:webpack",
+    "clean": "rimraf -r declaration build umd es2015"
   },
   "keywords": [
     "css",

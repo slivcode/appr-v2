@@ -5,7 +5,7 @@ let webpack = require('webpack');
 let d = (...r) => resolve(__dirname, ...r);
 
 let cfg = {
-	entry: d('build', 'index.js'),
+	entry: d('es2015', 'index.js'),
 	output: {
 		path: d('umd'),
 		filename: 'appr-core.js',
@@ -26,7 +26,7 @@ let cfg = {
 	},
 	plugins: [
 		new webpack.DefinePlugin({
-			NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+			NODE_ENV: JSON.stringify(process.env.NODE_ENV)
 		})
 	]
 };
